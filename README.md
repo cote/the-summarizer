@@ -8,11 +8,27 @@ YouTube input is pre-processed via `YOUTUBE_SUMMARY_TEMPLATE.md` (needs `yt-dlp`
 
 ## Install
 
+### Option A: download the release zip
+
+Grab [`dist/the-summarizer.zip`](dist/the-summarizer.zip) and unzip it into `~/.claude/skills/`:
+
+```bash
+curl -L -o the-summarizer.zip https://github.com/<user>/the-summarizer/raw/main/dist/the-summarizer.zip
+unzip -d ~/.claude/skills/ the-summarizer.zip
+```
+
+### Option B: clone and build
+
 ```bash
 ./build.sh
 ```
 
-Builds `target/the-summarizer/`, zips it, and copies to `$SKILL_INSTALL_DIR` (defaults to `~/.claude/skills/`). Pass `--no-install` to stop after the zip.
+Builds `target/the-summarizer/`, zips it, and copies to `$SKILL_INSTALL_DIR` (defaults to `~/.claude/skills/`).
+
+Flags:
+
+- `--no-install` — stop after the zip.
+- `--package` — also copy the zip to `dist/the-summarizer.zip` (the tracked release artifact).
 
 ## Layout
 
@@ -22,7 +38,9 @@ src/the-summarizer/
   DEFAULT_SUMMARY_PROMPT.md
   TAKE_SUMMARY_PROMPT.md
   YOUTUBE_SUMMARY_TEMPLATE.md
+dist/the-summarizer.zip      ← committed release artifact
 build.sh
+LICENSE
 README.md
 CHANGELOG.md
 ```
