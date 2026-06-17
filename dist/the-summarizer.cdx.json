@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.5",
-  "serialNumber": "urn:uuid:4f1c495f-0ca5-420c-a93f-736a7f32ba79",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:4a421bfe-c3e0-4359-a70f-5335dcdf59d8",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-17T11:43:05Z",
+    "timestamp": "2026-06-17T11:48:38Z",
     "tools": [
       { "vendor": "the-skill-builder", "name": "build.sh", "version": "1.0" }
     ],
@@ -16,7 +16,7 @@
       "description": "Claude Code skill: summarize external content into a tight prose form.",
       "licenses": [ { "license": { "id": "MIT" } } ],
       "authors": [ { "name": "Michael Cote" } ],
-      "hashes": [ { "alg": "SHA-256", "content": "4ee4e37217a4604e1d0e7433aac13ea43cdcba4fa684419ae5970d451e0ee8dd" } ]
+      "hashes": [ { "alg": "SHA-256", "content": "ed88935383458be4755d0c95a95736738afabb3321b0e6522a89766993f30148" } ]
     }
   },
   "components": [
