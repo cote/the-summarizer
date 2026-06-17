@@ -1,6 +1,58 @@
-.env
-*.key
+# --- Build output ---
 target/
-__pycache__/
-*.pyc
+build/
+dist/
+
+# --- OS cruft ---
 .DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# --- Editor / IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- Secrets and credentials ---
+# Never commit these. If you need to ship a sample, name it secrets.yaml.example
+# and commit that instead of the real file.
+.env
+.env.*
+!.env.example
+secrets.yaml
+secrets.json
+secrets.toml
+credentials
+credentials.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+*_rsa
+*_dsa
+*_ecdsa
+*_ed25519
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+known_hosts
+.netrc
+
+# --- Cloud provider creds ---
+.aws/
+.gcp/
+gcp-key.json
+service-account*.json
+.azure/
+
+# --- Language / package noise (uncomment as needed) ---
+# __pycache__/
+# *.pyc
+# .venv/
+# node_modules/
+# *.log
