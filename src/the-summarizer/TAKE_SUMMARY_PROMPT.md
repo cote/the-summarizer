@@ -1,0 +1,1 @@
+In one paragraph, state the single core point of the piece directly and declaratively - force a thesis even if the source hedges. No attribution ("the author argues," "Thompson says"); just assert the claim as the piece's stake. Keep it tight: what the piece is really saying and why it matters.

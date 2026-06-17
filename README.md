@@ -1,42 +1,28 @@
-# cote-summarize
+# The Summarizer
 
-Simplified summarize skill - condense an article, PDF, YouTube video, or pasted text into a tight prose Hugo blog post
+A Claude Code skill that summarizes external content (article URLs, pasted text, PDFs, YouTube videos) into a tight prose form with a Take, highlighted key ideas, and a Hugo-ready output.
 
-## Structure
+The skill picks among named prompt variants (e.g. `DEFAULT_SUMMARY_PROMPT.md`, `TAKE_SUMMARY_PROMPT.md`) based on the user's request. Drop a new `NAME_SUMMARY_PROMPT.md` next to SKILL.md to add a variant.
 
-```
-src/cote-summarize/          # source - edit here
-  SKILL.md                # skill definition (frontmatter + docs)
-  scripts/                # executable scripts
-  reference/              # templates, config samples
-target/cote-summarize/       # built artifact - zip to deploy
-tests/                    # test scripts and fixtures
-CHANGELOG.md              # version history
-README.md                 # this file
-```
+YouTube input is pre-processed via `YOUTUBE_SUMMARY_TEMPLATE.md` (needs `yt-dlp`), then fed to the chosen summary prompt.
 
 ## Install
 
 ```bash
-audit-skill.sh cote-summarize
-build-skill.sh cote-summarize
-install-skill.sh cote-summarize
+./build.sh
 ```
 
-## Usage
+Builds `target/the-summarizer/`, zips it, and copies to `$SKILL_INSTALL_DIR` (defaults to `~/.claude/skills/`). Pass `--no-install` to stop after the zip.
 
-<!-- TODO: show 2-3 common invocations -->
+## Layout
 
-## Testing
-
-Tests live in `tests/`. Run them before committing:
-
-```bash
-bash tests/run.sh
 ```
-
-Document what each test verifies so they can be repeated consistently.
-
-## Architecture
-
-<!-- TODO: diagram of how the skill works, data flow, dependencies -->
+src/the-summarizer/
+  SKILL.md
+  DEFAULT_SUMMARY_PROMPT.md
+  TAKE_SUMMARY_PROMPT.md
+  YOUTUBE_SUMMARY_TEMPLATE.md
+build.sh
+README.md
+CHANGELOG.md
+```
