@@ -42,7 +42,7 @@ When the user provides a YouTube URL, run the YouTube template first, then apply
 
 | What | Location |
 |------|----------|
-| Config | `~/.config/io.cote.ai.skill.the-summarizer/` |
-| Data | `~/.local/share/io.cote.ai.skill.the-summarizer/` |
-| State | `~/.local/state/io.cote.ai.skill.the-summarizer/` |
-| Cache | `~/.cache/io.cote.ai.skill.the-summarizer/` |
+| Config | `~/.config/io.cote.ai.skill.the_summarizer/` |
+| Data | `~/.local/share/io.cote.ai.skill.the_summarizer/` |
+| State | `~/.local/state/io.cote.ai.skill.the_summarizer/` |
+| Cache | `~/.cache/io.cote.ai.skill.the_summarizer/` |

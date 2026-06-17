@@ -18,14 +18,14 @@ If it's not available, tell the user and stop. Do not silently fall back to summ
 
    ```bash
    yt-dlp --write-sub --sub-lang en --sub-format srt --skip-download \
-       -o "~/.cache/io.cote.ai.skill.the-summarizer/yt-transcript" <URL>
+       -o "~/.cache/io.cote.ai.skill.the_summarizer/yt-transcript" <URL>
    ```
 
 2. If no human subs exist, fall back to auto-generated:
 
    ```bash
    yt-dlp --write-auto-sub --sub-lang en --sub-format srt --skip-download \
-       -o "~/.cache/io.cote.ai.skill.the-summarizer/yt-transcript" <URL>
+       -o "~/.cache/io.cote.ai.skill.the_summarizer/yt-transcript" <URL>
    ```
 
 3. If neither is available, report the error and stop.
@@ -48,4 +48,4 @@ If it's not available, tell the user and stop. Do not silently fall back to summ
 ## Notes
 
 - The video's title and channel name go in the `Source:` line. Pull these from `yt-dlp --get-title` / `--get-uploader` if not obvious from the URL.
-- Cache files in `~/.cache/io.cote.ai.skill.the-summarizer/` are disposable; safe to overwrite each run.
+- Cache files in `~/.cache/io.cote.ai.skill.the_summarizer/` are disposable; safe to overwrite each run.
