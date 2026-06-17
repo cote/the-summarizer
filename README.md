@@ -20,15 +20,16 @@ unzip -d ~/.claude/skills/ the-summarizer.zip
 ### Option B: clone and build
 
 ```bash
-./build.sh
+./build.sh --install
 ```
 
 Builds `target/the-summarizer/`, zips it, and copies to `$SKILL_INSTALL_DIR` (defaults to `~/.claude/skills/`).
 
-Flags:
+Flags (opt-in, combinable):
 
-- `--no-install` — stop after the zip.
-- `--package` — also copy the zip to `dist/the-summarizer.zip` and emit a CycloneDX SBOM at `dist/the-summarizer.cdx.json` (tracked release artifacts).
+- `--install` — copy the built skill into `$SKILL_INSTALL_DIR`.
+- `--package` — copy the zip to `dist/the-summarizer.zip` and emit a CycloneDX SBOM at `dist/the-summarizer.cdx.json` (tracked release artifacts).
+- `-h`, `--help` — show usage (also printed when run with no flags).
 
 ## Releasing
 
@@ -59,10 +60,10 @@ To cut a new release (e.g. `1.1`):
 Each release ships with a CycloneDX 1.6 SBOM at `dist/the-summarizer.cdx.json`. Validate it with:
 
 ```bash
-cyclonedx-cli validate --input-file dist/the-summarizer.cdx.json
+cyclonedx validate --input-file dist/the-summarizer.cdx.json
 ```
 
-(`brew install cyclonedx-cli` if you don't have it.)
+(`brew install cyclonedx-cli` if you don't have it. The binary is `cyclonedx`.)
 
 ## Layout
 
