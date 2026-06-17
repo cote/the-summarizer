@@ -51,6 +51,48 @@ if $PACKAGE; then
     mkdir -p "$DIST_DIR"
     cp "$ZIP" "$DIST_ZIP"
     echo "Packaged: $DIST_ZIP"
+
+    SBOM="$DIST_DIR/$SKILL_NAME.cdx.json"
+    ZIP_SHA="$(shasum -a 256 "$DIST_ZIP" | awk '{print $1}')"
+    TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    UUID="$(uuidgen | tr 'A-Z' 'a-z')"
+    cat > "$SBOM" <<EOF
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:$UUID",
+  "version": 1,
+  "metadata": {
+    "timestamp": "$TS",
+    "tools": [
+      { "vendor": "the-skill-builder", "name": "build.sh", "version": "1.0" }
+    ],
+    "component": {
+      "type": "application",
+      "bom-ref": "pkg:generic/$SKILL_NAME@1.0",
+      "name": "$SKILL_NAME",
+      "version": "1.0",
+      "description": "Claude Code skill: summarize external content into a tight prose form.",
+      "licenses": [ { "license": { "id": "MIT" } } ],
+      "authors": [ { "name": "Michael Cote" } ],
+      "hashes": [ { "alg": "SHA-256", "content": "$ZIP_SHA" } ]
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "bom-ref": "pkg:generic/yt-dlp",
+      "name": "yt-dlp",
+      "description": "Optional runtime dependency for YouTube transcript extraction.",
+      "scope": "optional",
+      "externalReferences": [
+        { "type": "website", "url": "https://github.com/yt-dlp/yt-dlp" }
+      ]
+    }
+  ]
+}
+EOF
+    echo "SBOM:     $SBOM"
 fi
 
 if $INSTALL; then

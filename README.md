@@ -28,7 +28,17 @@ Builds `target/the-summarizer/`, zips it, and copies to `$SKILL_INSTALL_DIR` (de
 Flags:
 
 - `--no-install` — stop after the zip.
-- `--package` — also copy the zip to `dist/the-summarizer.zip` (the tracked release artifact).
+- `--package` — also copy the zip to `dist/the-summarizer.zip` and emit a CycloneDX SBOM at `dist/the-summarizer.cdx.json` (tracked release artifacts).
+
+## Supply chain
+
+Each release ships with a CycloneDX 1.5 SBOM at `dist/the-summarizer.cdx.json`. Validate it with:
+
+```bash
+cyclonedx-cli validate --input-file dist/the-summarizer.cdx.json
+```
+
+(`brew install cyclonedx-cli` if you don't have it.)
 
 ## Layout
 
