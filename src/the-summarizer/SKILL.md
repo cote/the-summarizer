@@ -6,6 +6,7 @@ description: >
   and a Hugo-ready output. Picks a named prompt variant (DEFAULT, SHORT, TAKE,
   etc.) based on the user's request. Use when asked to summarize external
   content - not when asked to summarize your own output.
+license: MIT
 compatibility: Requires bash.
 metadata:
   author: cote
